@@ -1,0 +1,25 @@
+﻿@model Kategori
+@{
+    ViewData["Title"] = Model.Ad;
+}
+
+<h1>@Model.Ad</h1>
+
+@if (Model.Kitaplar.Count == 0)
+{
+    <p>Bu kategoride kitap bulunmuyor.</p>
+}
+else
+{
+    <ul>
+        @foreach (var kitap in Model.Kitaplar)
+        {
+            <li>
+                <a asp-controller="Kitaplar" asp-action="Detay"
+                   asp-route-id="@kitap.Id">@kitap.Ad</a> (@kitap.Yazar)
+            </li>
+        }
+    </ul>
+}
+
+<a asp-action="Index">Kategorilere dön</a>

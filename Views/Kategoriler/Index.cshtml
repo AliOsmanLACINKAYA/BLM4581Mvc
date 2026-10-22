@@ -1,0 +1,28 @@
+﻿@model List<Kategori>
+@{
+    ViewData["Title"] = "Kategoriler";
+}
+
+<h1>Kategoriler</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kategori</th>
+            <th>Kitap Sayısı</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var kategori in Model)
+        {
+            <tr>
+                <td>@kategori.Ad</td>
+                <td>@kategori.Kitaplar.Count</td>
+                <td>
+                    <a asp-action="Detay" asp-route-id="@kategori.Id">Kitaplar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,44 @@
+﻿@model List<Kitap>
+@{
+    ViewData["Title"] = "Kitaplar";
+}
+
+<h1>Kitaplar</h1>
+
+
+@if (TempData["Mesaj"] != null)
+{
+    <div class="alert alert-success">@TempData["Mesaj"]</div>
+}
+
+<a asp-action="Ekle" class="btn btn-primary mb-3">Yeni Kitap</a>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kitap Adı</th>
+            <th>Yazar</th>
+            <th>Kategori</th>
+            <th>Basım Yılı</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var kitap in Model)
+        {
+            <tr>
+                <td>@kitap.Ad</td>
+                <td>@kitap.Yazar</td>
+                <td>@kitap.Kategori?.Ad</td>
+                <td>@kitap.BasimYili</td>
+                <td>
+                    <a asp-action="Detay" asp-route-id="@kitap.Id">Detay</a> |
+                    <a asp-action="Duzenle" asp-route-id="@kitap.Id">Düzenle</a> |
+                    <a asp-action="Sil" asp-route-id="@kitap.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

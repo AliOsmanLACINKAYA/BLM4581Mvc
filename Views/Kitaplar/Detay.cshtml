@@ -1,0 +1,19 @@
+﻿@model Kitap
+@{
+    ViewData["Title"] = "Kitap Detayı";
+}
+
+<h1>@Model.Ad</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Yazar</dt>
+    <dd class="col-sm-9">@Model.Yazar</dd>
+    <dt class="col-sm-3">Kategori</dt>
+    <dd class="col-sm-9">@Model.Kategori?.Ad</dd>
+    <dt class="col-sm-3">Basım Yılı</dt>
+    <dd class="col-sm-9">@Model.BasimYili</dd>
+    <dt class="col-sm-3">Sayfa Sayısı</dt>
+    <dd class="col-sm-9">@Model.SayfaSayisi</dd>
+</dl>
+
+<a asp-action="Index">Listeye dön</a>

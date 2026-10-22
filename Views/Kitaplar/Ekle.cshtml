@@ -1,0 +1,43 @@
+﻿@model Kitap
+@{
+    ViewData["Title"] = "Yeni Kitap";
+}
+ 
+<h1>Yeni Kitap</h1>
+ 
+<form asp-action="Ekle" method="post">
+    <div class="mb-3">
+        <label asp-for="Ad" class="form-label"></label>
+        <input asp-for="Ad" class="form-control" />
+        <span asp-validation-for="Ad" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Yazar" class="form-label"></label>
+        <input asp-for="Yazar" class="form-control" />
+        <span asp-validation-for="Yazar" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="KategoriId" class="form-label"></label>
+        <select asp-for="KategoriId" asp-items="ViewBag.Kategoriler"
+                class="form-select">
+            <option value="">-- Kategori seçiniz --</option>
+        </select>
+        <span asp-validation-for="KategoriId" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="BasimYili" class="form-label"></label>
+        <input asp-for="BasimYili" class="form-control" />
+        <span asp-validation-for="BasimYili" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="SayfaSayisi" class="form-label"></label>
+        <input asp-for="SayfaSayisi" class="form-control" />
+        <span asp-validation-for="SayfaSayisi" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a asp-action="Index" class="btn btn-secondary">Vazgeç</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
